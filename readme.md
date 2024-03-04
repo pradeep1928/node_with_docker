@@ -59,3 +59,21 @@ docker volume prune  (remove all unused volumes)
 
 ---
 
+#### Create docker image and container using docker compose file
+docker-compose up -d
+
+#### Stop the service
+docker-compose down
+
+#### View logs of the service
+docker-compose logs -f [service name]
+
+#### Access shell inside the container
+docker exec -it <container id / name> bash
+
+#### Push Docker Image to Registry
+bash buildAndPushImage.sh username/imag ename:tag
+(Note: You will need a Docker Hub account for this.)
+
+
+
