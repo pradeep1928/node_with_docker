@@ -62,6 +62,11 @@ docker volume prune  (remove all unused volumes)
 #### Create docker image and container using docker compose file
 docker-compose up -d
 
+#### To run docker compose with multiple files
+docker-compose -f docker-compose.yml -f db-compose.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
 #### Stop the service
 docker-compose down
 
