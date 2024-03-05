@@ -8,3 +8,9 @@ services:
       - PORT=3000
     # env_file: 
     #   - ./.env
+
+  mongodb: 
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=pradeep
+      - MONGO_INITDB_ROOT_PASSWORD=pradeep19
