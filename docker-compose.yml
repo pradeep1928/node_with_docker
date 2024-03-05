@@ -6,6 +6,8 @@ services:
       - "3000:3000"
     environment:
       - PORT=3000
+    depends_on:
+      - mongodb
     # env_file: 
     #   - ./.env
 
@@ -14,3 +16,8 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=pradeep
       - MONGO_INITDB_ROOT_PASSWORD=pradeep19
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:

@@ -1,5 +1,5 @@
 
-last played = 1:32:00
+last played = 2:33:00
 
 
 #### Open browser to see app in action
@@ -72,6 +72,7 @@ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
 
 #### Stop the service
 docker-compose down
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
 
 #### View logs of the service
 docker-compose logs -f [service name]
@@ -83,5 +84,13 @@ docker exec -it <container id / name> bash
 bash buildAndPushImage.sh username/imag ename:tag
 (Note: You will need a Docker Hub account for this.)
 
+#### Inspect the docker container
+docker inspect <container id / name>
 
+#### Inspect the docker network
+docker network inspect <network id / name>
+docker network inspect node_docker_default
 
+#### Mongodb url 
+"mongodb://username:password@hostname:port/?authSource=admin"
+    
