@@ -1,5 +1,8 @@
 version: "3"
 services:
+  ngnix: 
+    ports:
+      - "80:80"
   node-docker-app:
     build: 
       context: .

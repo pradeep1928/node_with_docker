@@ -70,6 +70,9 @@ docker-compose -f docker-compose.yml -f db-compose.yml up -d
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
 
+#### Scale up docker container. Create multiple container  instances of one service
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --scale node-docker-app=2
+
 #### Stop the service
 docker-compose down
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml down

@@ -30,8 +30,8 @@ let RedisClient = redis.createClient({
 })();
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+app.enable("trust proxy");
 
 app.use(
     session({
@@ -48,6 +48,9 @@ app.use(
         },
     })
 );
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const mongoUrl = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/${MONGO_DB_NAME}?authSource=admin`;
 
