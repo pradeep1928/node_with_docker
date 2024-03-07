@@ -15,6 +15,7 @@ const signUp = async (req, res, next) => {
                 .status(401)
                 .json({ status: "Failed", message: "Error creating new user" });
         else {
+            req.session.user = newUser;
             console.log(`New User ${newUser._id} created`);
             return res.status(201).json({
                 status: "Success",
@@ -44,14 +45,16 @@ const login = async (req, res, next) => {
                 .json({ status: "Fail", message: "Invalid email or Credentials!" });
 
         const validPass = await bcrypt.compare(password, user.password);
-        if (!validPass)
+        if (!validPass) {
             return res
                 .status(401)
                 .json({ status: "Fail", message: "Invalid Password!" });
+        } else {
+            req.session.user = user
+            res.status(200)
+                .json({ status: "Success", message: "User logged in successfully" });
+        }
 
-        res
-            .status(200)
-            .json({ status: "Success", message: "User logged in successfully" });
     } catch (error) {
         console.error(error.message);
         return res

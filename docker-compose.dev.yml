@@ -13,9 +13,15 @@ services:
       - MONGO_USER=pradeep
       - MONGO_PASSWORD=pradeep19
       - MONGO_DB_NAME=node_docker
+      - SESSION_SECRET=thisissessionsecret
+      - REDIS_URL=redisdb
+      - REDIS_PORT=6379
     command: npm run dev
   
   mongodb: 
     environment:
       - MONGO_INITDB_ROOT_USERNAME=pradeep
       - MONGO_INITDB_ROOT_PASSWORD=pradeep19
+
+  redisdb: 
+    image: redis
