@@ -95,5 +95,31 @@ docker network inspect <network id / name>
 docker network inspect node_docker_default
 
 #### Mongodb url 
-"mongodb://username:password@hostname:port/?authSource=admin"
+"mongodb://username:password@hostname:port/mongo-db-name?authSource=admin"
+
+#### Set the environment variable in linux machine  
+export VARIABLE_NAME="value"
+echo $VARIABLE_NAME
+printenv VARIABLE_NAME 
     
+#### Process to create .env file and export all env variable in linux machine
+1) Open terminal
+2) Navigate to project directory
+3) touch .env (create an empty .env file)   
+4) open .env file using vi or vim  editor
+5) Write or paste your variables like below format, save & close it.
+      VARIABLE_NAME="Value"
+Example : DB_HOST="localhost"
+          DB_PORT="5000"
+          DB_USERNAME="root"
+          DB_PASSWORD="rootpass"    
+          DB_DATABASE="nodeappdb"      
+          JWT_SECRET="jwtsecretkey"                
+          NODE_ENV="production"
+
+1) Run command "source .env" in terminal to load the .env file content as environment variables. If you want to set these values permanently PORT="8080"
+2) Run command "source .env"  in terminal
+3) Now you can access all the variables using process.env.VARIABLE_NAME in NodeJS app
+4) Or you can search for .profile file in linux root. open it and add the following line to it and save it.
+  `set -o  allexport; source /root/.env; set +o allexport`
+     Now you can use any where in system using $VARIABLE_NAME
